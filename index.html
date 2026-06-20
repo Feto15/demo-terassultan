@@ -20,45 +20,714 @@
         <div class="glass-card" id="registration-card">
             <header class="header">
                 <img src="Yogya-03.png" alt="Logo Terasultan" class="logo-image">
-                <h1 class="restaurant-name">Terasultan</h1>
-                <p class="subtitle">Arabian Modern Restaurant</p>
-                <div class="badge" style="display:inline-block; margin-top:10px; padding: 4px 12px; background: rgba(212,175,55,0.15); color: var(--gold); border: 1px solid var(--card-border); border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;">GRAND OPENING</div>
+                <p class="tagline">MIDDLE EAST FOOD, AMBIENCE<br>& ENTERTAINMENT EXPERIENCE</p>
+                <div class="badge" style="display:inline-block; margin-top:10px; padding: 4px 12px; background: rgba(197,160,89,0.15); color: var(--gold); border: 1px solid var(--card-border); border-radius: 20px; font-size: 0.8rem; font-weight: 600; letter-spacing: 1px;">GRAND OPENING</div>
             </header>
 
-            <form id="registration-form" class="form">
+            <form id="registration-form" class="form" novalidate>
                 <div class="form-header">
-                    <h2>RSVP Kehadiran</h2>
-                    <p>Mohon isi data Anda untuk konfirmasi kehadiran di acara Grand Opening kami.</p>
+                    <h2>Guest Registration</h2>
+                    <p>Please complete your details below to receive your exclusive QR Code for event access.</p>
                 </div>
 
-                <div class="input-group">
-                    <input type="text" id="name" name="name" required placeholder=" ">
-                    <label for="name">Nama Lengkap</label>
+                <!-- 1. FULL NAME & TITLE -->
+                <div class="form-group">
+                    <label class="section-label">1. FULL NAME</label>
+                    <div class="pill-group">
+                        <input type="radio" id="title-mr" name="title" value="Mr." required>
+                        <label for="title-mr" class="pill-label">Mr.</label>
+                        
+                        <input type="radio" id="title-mrs" name="title" value="Mrs.">
+                        <label for="title-mrs" class="pill-label">Mrs.</label>
+                        
+                        <input type="radio" id="title-ms" name="title" value="Ms.">
+                        <label for="title-ms" class="pill-label">Ms.</label>
+                    </div>
+                    <div class="input-group mt-2">
+                        <input type="text" id="name" name="name" required placeholder=" ">
+                        <label for="name">Enter your full name</label>
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <input type="email" id="email" name="email" required placeholder=" ">
-                    <label for="email">Alamat Email</label>
+                <!-- 2. WHATSAPP NUMBER -->
+                <div class="form-group">
+                    <label class="section-label">2. WHATSAPP NUMBER</label>
+                    <div class="input-group mt-1">
+                        <input type="tel" id="phone" name="phone" required placeholder=" ">
+                        <label for="phone">Enter your active WhatsApp number</label>
+                    </div>
                 </div>
 
-                <div class="input-group">
-                    <input type="tel" id="phone" name="phone" required placeholder=" ">
-                    <label for="phone">Nomor WhatsApp</label>
+                <!-- 3. EMAIL ADDRESS -->
+                <div class="form-group">
+                    <label class="section-label">3. EMAIL ADDRESS</label>
+                    <div class="input-group mt-1">
+                        <input type="email" id="email" name="email" required placeholder=" ">
+                        <label for="email">Enter your email address</label>
+                    </div>
                 </div>
 
-                <button type="submit" class="submit-btn">
-                    <span>Daftar Sekarang</span>
+                <!-- 4. ENTITY / COMPANY -->
+                <div class="form-group">
+                    <label class="section-label">4. ENTITY / COMPANY</label>
+                    <div class="input-group mt-1">
+                        <input type="text" id="company" name="company" required placeholder=" ">
+                        <label for="company">Enter the entity or company you represent</label>
+                    </div>
+                </div>
+
+                <!-- 5. CITY OF ORIGIN -->
+                <div class="form-group">
+                    <label class="section-label">5. CITY OF ORIGIN</label>
+                    <div class="input-group mt-1">
+                        <input type="text" id="city" name="city" list="cities" required placeholder=" ">
+                        <label for="city">Enter your city of origin</label>
+                    </div>
+                    <datalist id="cities">
+                        <option value="Kabupaten Aceh Barat">
+                        <option value="Kabupaten Aceh Timur">
+                        <option value="Kabupaten Buru Selatan">
+                        <option value="Kabupaten Buton">
+                        <option value="Kabupaten Buton Utara">
+                        <option value="Kabupaten Ciamis">
+                        <option value="Kabupaten Cianjur">
+                        <option value="Kabupaten Cilacap">
+                        <option value="Kota Cilegon">
+                        <option value="Kota Cimahi">
+                        <option value="Kabupaten Cirebon">
+                        <option value="Kota Cirebon">
+                        <option value="Kabupaten Aceh Utara">
+                        <option value="Kabupaten Dairi">
+                        <option value="Kabupaten Deiyai (Deliyai)">
+                        <option value="Kabupaten Deli Serdang">
+                        <option value="Kabupaten Demak">
+                        <option value="Kota Denpasar">
+                        <option value="Kota Depok">
+                        <option value="Kabupaten Dharmasraya">
+                        <option value="Kabupaten Dogiyai">
+                        <option value="Kabupaten Dompu">
+                        <option value="Kabupaten Donggala">
+                        <option value="Kabupaten Agam">
+                        <option value="Kota Dumai">
+                        <option value="Kabupaten Empat Lawang">
+                        <option value="Kabupaten Ende">
+                        <option value="Kabupaten Enrekang">
+                        <option value="Kabupaten Fakfak">
+                        <option value="Kabupaten Flores Timur">
+                        <option value="Kabupaten Garut">
+                        <option value="Kabupaten Gayo Lues">
+                        <option value="Kabupaten Gianyar">
+                        <option value="Kabupaten Gorontalo">
+                        <option value="Kabupaten Alor">
+                        <option value="Kota Gorontalo">
+                        <option value="Kabupaten Gorontalo Utara">
+                        <option value="Kabupaten Gowa">
+                        <option value="Kabupaten Gresik">
+                        <option value="Kabupaten Grobogan">
+                        <option value="Kabupaten Gunung Kidul">
+                        <option value="Kabupaten Gunung Mas">
+                        <option value="Kota Gunungsitoli">
+                        <option value="Kabupaten Halmahera Barat">
+                        <option value="Kabupaten Halmahera Selatan">
+                        <option value="Kota Ambon">
+                        <option value="Kabupaten Halmahera Tengah">
+                        <option value="Kabupaten Halmahera Timur">
+                        <option value="Kabupaten Halmahera Utara">
+                        <option value="Kabupaten Hulu Sungai Selatan">
+                        <option value="Kabupaten Hulu Sungai Tengah">
+                        <option value="Kabupaten Hulu Sungai Utara">
+                        <option value="Kabupaten Humbang Hasundutan">
+                        <option value="Kabupaten Indragiri Hilir">
+                        <option value="Kabupaten Indragiri Hulu">
+                        <option value="Kabupaten Indramayu">
+                        <option value="Kabupaten Asahan">
+                        <option value="Kabupaten Intan Jaya">
+                        <option value="Kota Jakarta Barat">
+                        <option value="Kota Jakarta Pusat">
+                        <option value="Kota Jakarta Selatan">
+                        <option value="Kota Jakarta Timur">
+                        <option value="Kota Jakarta Utara">
+                        <option value="Kota Jambi">
+                        <option value="Kabupaten Jayapura">
+                        <option value="Kota Jayapura">
+                        <option value="Kabupaten Jayawijaya">
+                        <option value="Kabupaten Asmat">
+                        <option value="Kabupaten Jember">
+                        <option value="Kabupaten Jembrana">
+                        <option value="Kabupaten Jeneponto">
+                        <option value="Kabupaten Jepara">
+                        <option value="Kabupaten Jombang">
+                        <option value="Kabupaten Kaimana">
+                        <option value="Kabupaten Kampar">
+                        <option value="Kabupaten Kapuas">
+                        <option value="Kabupaten Kapuas Hulu">
+                        <option value="Kabupaten Karanganyar">
+                        <option value="Kabupaten Badung">
+                        <option value="Kabupaten Karangasem">
+                        <option value="Kabupaten Karawang">
+                        <option value="Kabupaten Karimun">
+                        <option value="Kabupaten Karo">
+                        <option value="Kabupaten Katingan">
+                        <option value="Kabupaten Kaur">
+                        <option value="Kabupaten Kayong Utara">
+                        <option value="Kabupaten Kebumen">
+                        <option value="Kabupaten Kediri">
+                        <option value="Kota Kediri">
+                        <option value="Kabupaten Balangan">
+                        <option value="Kabupaten Keerom">
+                        <option value="Kabupaten Kendal">
+                        <option value="Kota Kendari">
+                        <option value="Kabupaten Kepahiang">
+                        <option value="Kabupaten Kepulauan Anambas">
+                        <option value="Kabupaten Kepulauan Aru">
+                        <option value="Kabupaten Kepulauan Mentawai">
+                        <option value="Kabupaten Kepulauan Meranti">
+                        <option value="Kabupaten Kepulauan Sangihe">
+                        <option value="Kabupaten Kepulauan Seribu">
+                        <option value="Kota Balikpapan">
+                        <option value="Kabupaten Kepulauan Siau Tagulandang Biaro (Sitaro)">
+                        <option value="Kabupaten Kepulauan Sula">
+                        <option value="Kabupaten Kepulauan Talaud">
+                        <option value="Kabupaten Kepulauan Yapen (Yapen Waropen)">
+                        <option value="Kabupaten Kerinci">
+                        <option value="Kabupaten Ketapang">
+                        <option value="Kabupaten Klaten">
+                        <option value="Kabupaten Klungkung">
+                        <option value="Kabupaten Kolaka">
+                        <option value="Kabupaten Kolaka Utara">
+                        <option value="Kabupaten Aceh Barat Daya">
+                        <option value="Kota Banda Aceh">
+                        <option value="Kabupaten Konawe">
+                        <option value="Kabupaten Konawe Selatan">
+                        <option value="Kabupaten Konawe Utara">
+                        <option value="Kabupaten Kotabaru">
+                        <option value="Kota Kotamobagu">
+                        <option value="Kabupaten Kotawaringin Barat">
+                        <option value="Kabupaten Kotawaringin Timur">
+                        <option value="Kabupaten Kuantan Singingi">
+                        <option value="Kabupaten Kubu Raya">
+                        <option value="Kabupaten Kudus">
+                        <option value="Kota Bandar Lampung">
+                        <option value="Kabupaten Kulon Progo">
+                        <option value="Kabupaten Kuningan">
+                        <option value="Kabupaten Kupang">
+                        <option value="Kota Kupang">
+                        <option value="Kabupaten Kutai Barat">
+                        <option value="Kabupaten Kutai Kartanegara">
+                        <option value="Kabupaten Kutai Timur">
+                        <option value="Kabupaten Labuhan Batu">
+                        <option value="Kabupaten Labuhan Batu Selatan">
+                        <option value="Kabupaten Labuhan Batu Utara">
+                        <option value="Kabupaten Bandung">
+                        <option value="Kabupaten Lahat">
+                        <option value="Kabupaten Lamandau">
+                        <option value="Kabupaten Lamongan">
+                        <option value="Kabupaten Lampung Barat">
+                        <option value="Kabupaten Lampung Selatan">
+                        <option value="Kabupaten Lampung Tengah">
+                        <option value="Kabupaten Lampung Timur">
+                        <option value="Kabupaten Lampung Utara">
+                        <option value="Kabupaten Landak">
+                        <option value="Kabupaten Langkat">
+                        <option value="Kota Bandung">
+                        <option value="Kota Langsa">
+                        <option value="Kabupaten Lanny Jaya">
+                        <option value="Kabupaten Lebak">
+                        <option value="Kabupaten Lebong">
+                        <option value="Kabupaten Lembata">
+                        <option value="Kota Lhokseumawe">
+                        <option value="Kabupaten Lima Puluh Koto/Kota">
+                        <option value="Kabupaten Lingga">
+                        <option value="Kabupaten Lombok Barat">
+                        <option value="Kabupaten Lombok Tengah">
+                        <option value="Kabupaten Bandung Barat">
+                        <option value="Kabupaten Lombok Timur">
+                        <option value="Kabupaten Lombok Utara">
+                        <option value="Kota Lubuk Linggau">
+                        <option value="Kabupaten Lumajang">
+                        <option value="Kabupaten Luwu">
+                        <option value="Kabupaten Luwu Timur">
+                        <option value="Kabupaten Luwu Utara">
+                        <option value="Kabupaten Madiun">
+                        <option value="Kota Madiun">
+                        <option value="Kabupaten Magelang">
+                        <option value="Kabupaten Banggai">
+                        <option value="Kota Magelang">
+                        <option value="Kabupaten Magetan">
+                        <option value="Kabupaten Majalengka">
+                        <option value="Kabupaten Majene">
+                        <option value="Kota Makassar">
+                        <option value="Kabupaten Malang">
+                        <option value="Kota Malang">
+                        <option value="Kabupaten Malinau">
+                        <option value="Kabupaten Maluku Barat Daya">
+                        <option value="Kabupaten Maluku Tengah">
+                        <option value="Kabupaten Banggai Kepulauan">
+                        <option value="Kabupaten Maluku Tenggara">
+                        <option value="Kabupaten Maluku Tenggara Barat">
+                        <option value="Kabupaten Mamasa">
+                        <option value="Kabupaten Mamberamo Raya">
+                        <option value="Kabupaten Mamberamo Tengah">
+                        <option value="Kabupaten Mamuju">
+                        <option value="Kabupaten Mamuju Utara">
+                        <option value="Kota Manado">
+                        <option value="Kabupaten Mandailing Natal">
+                        <option value="Kabupaten Manggarai">
+                        <option value="Kabupaten Bangka">
+                        <option value="Kabupaten Manggarai Barat">
+                        <option value="Kabupaten Manggarai Timur">
+                        <option value="Kabupaten Manokwari">
+                        <option value="Kabupaten Manokwari Selatan">
+                        <option value="Kabupaten Mappi">
+                        <option value="Kabupaten Maros">
+                        <option value="Kota Mataram">
+                        <option value="Kabupaten Maybrat">
+                        <option value="Kota Medan">
+                        <option value="Kabupaten Melawi">
+                        <option value="Kabupaten Bangka Barat">
+                        <option value="Kabupaten Merangin">
+                        <option value="Kabupaten Merauke">
+                        <option value="Kabupaten Mesuji">
+                        <option value="Kota Metro">
+                        <option value="Kabupaten Mimika">
+                        <option value="Kabupaten Minahasa">
+                        <option value="Kabupaten Minahasa Selatan">
+                        <option value="Kabupaten Minahasa Tenggara">
+                        <option value="Kabupaten Minahasa Utara">
+                        <option value="Kabupaten Mojokerto">
+                        <option value="Kabupaten Bangka Selatan">
+                        <option value="Kota Mojokerto">
+                        <option value="Kabupaten Morowali">
+                        <option value="Kabupaten Muara Enim">
+                        <option value="Kabupaten Muaro Jambi">
+                        <option value="Kabupaten Muko Muko">
+                        <option value="Kabupaten Muna">
+                        <option value="Kabupaten Murung Raya">
+                        <option value="Kabupaten Musi Banyuasin">
+                        <option value="Kabupaten Musi Rawas">
+                        <option value="Kabupaten Nabire">
+                        <option value="Kabupaten Aceh Besar">
+                        <option value="Kabupaten Bangka Tengah">
+                        <option value="Kabupaten Nagan Raya">
+                        <option value="Kabupaten Nagekeo">
+                        <option value="Kabupaten Natuna">
+                        <option value="Kabupaten Nduga">
+                        <option value="Kabupaten Ngada">
+                        <option value="Kabupaten Nganjuk">
+                        <option value="Kabupaten Ngawi">
+                        <option value="Kabupaten Nias">
+                        <option value="Kabupaten Nias Barat">
+                        <option value="Kabupaten Nias Selatan">
+                        <option value="Kabupaten Bangkalan">
+                        <option value="Kabupaten Nias Utara">
+                        <option value="Kabupaten Nunukan">
+                        <option value="Kabupaten Ogan Ilir">
+                        <option value="Kabupaten Ogan Komering Ilir">
+                        <option value="Kabupaten Ogan Komering Ulu">
+                        <option value="Kabupaten Ogan Komering Ulu Selatan">
+                        <option value="Kabupaten Ogan Komering Ulu Timur">
+                        <option value="Kabupaten Pacitan">
+                        <option value="Kota Padang">
+                        <option value="Kabupaten Padang Lawas">
+                        <option value="Kabupaten Bangli">
+                        <option value="Kabupaten Padang Lawas Utara">
+                        <option value="Kota Padang Panjang">
+                        <option value="Kabupaten Padang Pariaman">
+                        <option value="Kota Padang Sidempuan">
+                        <option value="Kota Pagar Alam">
+                        <option value="Kabupaten Pakpak Bharat">
+                        <option value="Kota Palangka Raya">
+                        <option value="Kota Palembang">
+                        <option value="Kota Palopo">
+                        <option value="Kota Palu">
+                        <option value="Kabupaten Banjar">
+                        <option value="Kabupaten Pamekasan">
+                        <option value="Kabupaten Pandeglang">
+                        <option value="Kabupaten Pangandaran">
+                        <option value="Kabupaten Pangkajene Kepulauan">
+                        <option value="Kota Pangkal Pinang">
+                        <option value="Kabupaten Paniai">
+                        <option value="Kota Parepare">
+                        <option value="Kota Pariaman">
+                        <option value="Kabupaten Parigi Moutong">
+                        <option value="Kabupaten Pasaman">
+                        <option value="Kota Banjar">
+                        <option value="Kabupaten Pasaman Barat">
+                        <option value="Kabupaten Paser">
+                        <option value="Kabupaten Pasuruan">
+                        <option value="Kota Pasuruan">
+                        <option value="Kabupaten Pati">
+                        <option value="Kota Payakumbuh">
+                        <option value="Kabupaten Pegunungan Arfak">
+                        <option value="Kabupaten Pegunungan Bintang">
+                        <option value="Kabupaten Pekalongan">
+                        <option value="Kota Pekalongan">
+                        <option value="Kota Banjarbaru">
+                        <option value="Kota Pekanbaru">
+                        <option value="Kabupaten Pelalawan">
+                        <option value="Kabupaten Pemalang">
+                        <option value="Kota Pematang Siantar">
+                        <option value="Kabupaten Penajam Paser Utara">
+                        <option value="Kabupaten Pesawaran">
+                        <option value="Kabupaten Pesisir Barat">
+                        <option value="Kabupaten Pesisir Selatan">
+                        <option value="Kabupaten Pidie">
+                        <option value="Kabupaten Pidie Jaya">
+                        <option value="Kota Banjarmasin">
+                        <option value="Kabupaten Pinrang">
+                        <option value="Kabupaten Pohuwato">
+                        <option value="Kabupaten Polewali Mandar">
+                        <option value="Kabupaten Ponorogo">
+                        <option value="Kabupaten Pontianak">
+                        <option value="Kota Pontianak">
+                        <option value="Kabupaten Poso">
+                        <option value="Kota Prabumulih">
+                        <option value="Kabupaten Pringsewu">
+                        <option value="Kabupaten Probolinggo">
+                        <option value="Kabupaten Banjarnegara">
+                        <option value="Kota Probolinggo">
+                        <option value="Kabupaten Pulang Pisau">
+                        <option value="Kabupaten Pulau Morotai">
+                        <option value="Kabupaten Puncak">
+                        <option value="Kabupaten Puncak Jaya">
+                        <option value="Kabupaten Purbalingga">
+                        <option value="Kabupaten Purwakarta">
+                        <option value="Kabupaten Purworejo">
+                        <option value="Kabupaten Raja Ampat">
+                        <option value="Kabupaten Rejang Lebong">
+                        <option value="Kabupaten Bantaeng">
+                        <option value="Kabupaten Rembang">
+                        <option value="Kabupaten Rokan Hilir">
+                        <option value="Kabupaten Rokan Hulu">
+                        <option value="Kabupaten Rote Ndao">
+                        <option value="Kota Sabang">
+                        <option value="Kabupaten Sabu Raijua">
+                        <option value="Kota Salatiga">
+                        <option value="Kota Samarinda">
+                        <option value="Kabupaten Sambas">
+                        <option value="Kabupaten Samosir">
+                        <option value="Kabupaten Bantul">
+                        <option value="Kabupaten Sampang">
+                        <option value="Kabupaten Sanggau">
+                        <option value="Kabupaten Sarmi">
+                        <option value="Kabupaten Sarolangun">
+                        <option value="Kota Sawah Lunto">
+                        <option value="Kabupaten Sekadau">
+                        <option value="Kabupaten Selayar (Kepulauan Selayar)">
+                        <option value="Kabupaten Seluma">
+                        <option value="Kabupaten Semarang">
+                        <option value="Kota Semarang">
+                        <option value="Kabupaten Aceh Jaya">
+                        <option value="Kabupaten Banyuasin">
+                        <option value="Kabupaten Seram Bagian Barat">
+                        <option value="Kabupaten Seram Bagian Timur">
+                        <option value="Kabupaten Serang">
+                        <option value="Kota Serang">
+                        <option value="Kabupaten Serdang Bedagai">
+                        <option value="Kabupaten Seruyan">
+                        <option value="Kabupaten Siak">
+                        <option value="Kota Sibolga">
+                        <option value="Kabupaten Sidenreng Rappang/Rapang">
+                        <option value="Kabupaten Sidoarjo">
+                        <option value="Kabupaten Banyumas">
+                        <option value="Kabupaten Sigi">
+                        <option value="Kabupaten Sijunjung (Sawah Lunto Sijunjung)">
+                        <option value="Kabupaten Sikka">
+                        <option value="Kabupaten Simalungun">
+                        <option value="Kabupaten Simeulue">
+                        <option value="Kota Singkawang">
+                        <option value="Kabupaten Sinjai">
+                        <option value="Kabupaten Sintang">
+                        <option value="Kabupaten Situbondo">
+                        <option value="Kabupaten Sleman">
+                        <option value="Kabupaten Banyuwangi">
+                        <option value="Kabupaten Solok">
+                        <option value="Kota Solok">
+                        <option value="Kabupaten Solok Selatan">
+                        <option value="Kabupaten Soppeng">
+                        <option value="Kabupaten Sorong">
+                        <option value="Kota Sorong">
+                        <option value="Kabupaten Sorong Selatan">
+                        <option value="Kabupaten Sragen">
+                        <option value="Kabupaten Subang">
+                        <option value="Kota Subulussalam">
+                        <option value="Kabupaten Barito Kuala">
+                        <option value="Kabupaten Sukabumi">
+                        <option value="Kota Sukabumi">
+                        <option value="Kabupaten Sukamara">
+                        <option value="Kabupaten Sukoharjo">
+                        <option value="Kabupaten Sumba Barat">
+                        <option value="Kabupaten Sumba Barat Daya">
+                        <option value="Kabupaten Sumba Tengah">
+                        <option value="Kabupaten Sumba Timur">
+                        <option value="Kabupaten Sumbawa">
+                        <option value="Kabupaten Sumbawa Barat">
+                        <option value="Kabupaten Barito Selatan">
+                        <option value="Kabupaten Sumedang">
+                        <option value="Kabupaten Sumenep">
+                        <option value="Kota Sungaipenuh">
+                        <option value="Kabupaten Supiori">
+                        <option value="Kota Surabaya">
+                        <option value="Kota Surakarta (Solo)">
+                        <option value="Kabupaten Tabalong">
+                        <option value="Kabupaten Tabanan">
+                        <option value="Kabupaten Takalar">
+                        <option value="Kabupaten Tambrauw">
+                        <option value="Kabupaten Barito Timur">
+                        <option value="Kabupaten Tana Tidung">
+                        <option value="Kabupaten Tana Toraja">
+                        <option value="Kabupaten Tanah Bumbu">
+                        <option value="Kabupaten Tanah Datar">
+                        <option value="Kabupaten Tanah Laut">
+                        <option value="Kabupaten Tangerang">
+                        <option value="Kota Tangerang">
+                        <option value="Kota Tangerang Selatan">
+                        <option value="Kabupaten Tanggamus">
+                        <option value="Kota Tanjung Balai">
+                        <option value="Kabupaten Barito Utara">
+                        <option value="Kabupaten Tanjung Jabung Barat">
+                        <option value="Kabupaten Tanjung Jabung Timur">
+                        <option value="Kota Tanjung Pinang">
+                        <option value="Kabupaten Tapanuli Selatan">
+                        <option value="Kabupaten Tapanuli Tengah">
+                        <option value="Kabupaten Tapanuli Utara">
+                        <option value="Kabupaten Tapin">
+                        <option value="Kota Tarakan">
+                        <option value="Kabupaten Tasikmalaya">
+                        <option value="Kota Tasikmalaya">
+                        <option value="Kabupaten Barru">
+                        <option value="Kota Tebing Tinggi">
+                        <option value="Kabupaten Tebo">
+                        <option value="Kabupaten Tegal">
+                        <option value="Kota Tegal">
+                        <option value="Kabupaten Teluk Bintuni">
+                        <option value="Kabupaten Teluk Wondama">
+                        <option value="Kabupaten Temanggung">
+                        <option value="Kota Ternate">
+                        <option value="Kota Tidore Kepulauan">
+                        <option value="Kabupaten Timor Tengah Selatan">
+                        <option value="Kota Batam">
+                        <option value="Kabupaten Timor Tengah Utara">
+                        <option value="Kabupaten Toba Samosir">
+                        <option value="Kabupaten Tojo Una-Una">
+                        <option value="Kabupaten Toli-Toli">
+                        <option value="Kabupaten Tolikara">
+                        <option value="Kota Tomohon">
+                        <option value="Kabupaten Toraja Utara">
+                        <option value="Kabupaten Trenggalek">
+                        <option value="Kota Tual">
+                        <option value="Kabupaten Tuban">
+                        <option value="Kabupaten Batang">
+                        <option value="Kabupaten Tulang Bawang">
+                        <option value="Kabupaten Tulang Bawang Barat">
+                        <option value="Kabupaten Tulungagung">
+                        <option value="Kabupaten Wajo">
+                        <option value="Kabupaten Wakatobi">
+                        <option value="Kabupaten Waropen">
+                        <option value="Kabupaten Way Kanan">
+                        <option value="Kabupaten Wonogiri">
+                        <option value="Kabupaten Wonosobo">
+                        <option value="Kabupaten Yahukimo">
+                        <option value="Kabupaten Aceh Selatan">
+                        <option value="Kabupaten Batang Hari">
+                        <option value="Kabupaten Yalimo">
+                        <option value="Kota Yogyakarta">
+                        <option value="Kota Batu">
+                        <option value="Kabupaten Batu Bara">
+                        <option value="Kota Bau-Bau">
+                        <option value="Kabupaten Bekasi">
+                        <option value="Kota Bekasi">
+                        <option value="Kabupaten Belitung">
+                        <option value="Kabupaten Belitung Timur">
+                        <option value="Kabupaten Belu">
+                        <option value="Kabupaten Bener Meriah">
+                        <option value="Kabupaten Aceh Singkil">
+                        <option value="Kabupaten Bengkalis">
+                        <option value="Kabupaten Bengkayang">
+                        <option value="Kota Bengkulu">
+                        <option value="Kabupaten Bengkulu Selatan">
+                        <option value="Kabupaten Bengkulu Tengah">
+                        <option value="Kabupaten Bengkulu Utara">
+                        <option value="Kabupaten Berau">
+                        <option value="Kabupaten Biak Numfor">
+                        <option value="Kabupaten Bima">
+                        <option value="Kota Bima">
+                        <option value="Kabupaten Aceh Tamiang">
+                        <option value="Kota Binjai">
+                        <option value="Kabupaten Bintan">
+                        <option value="Kabupaten Bireuen">
+                        <option value="Kota Bitung">
+                        <option value="Kabupaten Blitar">
+                        <option value="Kota Blitar">
+                        <option value="Kabupaten Blora">
+                        <option value="Kabupaten Boalemo">
+                        <option value="Kabupaten Bogor">
+                        <option value="Kota Bogor">
+                        <option value="Kabupaten Aceh Tengah">
+                        <option value="Kabupaten Bojonegoro">
+                        <option value="Kabupaten Bolaang Mongondow (Bolmong)">
+                        <option value="Kabupaten Bolaang Mongondow Selatan">
+                        <option value="Kabupaten Bolaang Mongondow Timur">
+                        <option value="Kabupaten Bolaang Mongondow Utara">
+                        <option value="Kabupaten Bombana">
+                        <option value="Kabupaten Bondowoso">
+                        <option value="Kabupaten Bone">
+                        <option value="Kabupaten Bone Bolango">
+                        <option value="Kota Bontang">
+                        <option value="Kabupaten Aceh Tenggara">
+                        <option value="Kabupaten Boven Digoel">
+                        <option value="Kabupaten Boyolali">
+                        <option value="Kabupaten Brebes">
+                        <option value="Kota Bukittinggi">
+                        <option value="Kabupaten Buleleng">
+                        <option value="Kabupaten Bulukumba">
+                        <option value="Kabupaten Bulungan (Bulongan)">
+                        <option value="Kabupaten Bungo">
+                        <option value="Kabupaten Buol">
+                        <option value="Kabupaten Buru">
+                    </datalist>
+                </div>
+
+                <!-- 6. GUEST CATEGORY -->
+                <div class="form-group">
+                    <label class="section-label">6. GUEST CATEGORY</label>
+                    <p class="helper-text">Please select one:</p>
+                    <div class="select-wrapper mt-1">
+                        <select id="category" name="category" required>
+                            <option value="" disabled selected>Select category...</option>
+                            <option value="Business Partner">Business Partner</option>
+                            <option value="Community Representative">Community Representative</option>
+                            <option value="Government Representative">Government Representative</option>
+                            <option value="Influencer / KOL">Influencer / KOL</option>
+                            <option value="Internal Management">Internal Management</option>
+                            <option value="Investor">Investor</option>
+                            <option value="Media Representative">Media Representative</option>
+                            <option value="Vendor / Supplier">Vendor / Supplier</option>
+                            <option value="VIP Customer">VIP Customer</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 7. MARKETING PREFERENCES -->
+                <div class="form-group">
+                    <label class="section-label">7. MARKETING PREFERENCES</label>
+                    <p class="helper-text">Would you like to receive updates on promotions, special events, and exclusive offers from Terasultan?</p>
+                    <div class="radio-group mt-2">
+                        <label class="custom-radio">
+                            <input type="radio" name="marketing" value="Yes" required>
+                            <span class="radio-mark"></span>
+                            Yes, I would like to receive updates
+                        </label>
+                        <label class="custom-radio">
+                            <input type="radio" name="marketing" value="No">
+                            <span class="radio-mark"></span>
+                            No, thank you
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 8. EVENT DISCOVERY -->
+                <div class="form-group">
+                    <label class="section-label">8. EVENT DISCOVERY</label>
+                    <p class="helper-text">How did you hear about this event?</p>
+                    <div class="select-wrapper mt-1">
+                        <select id="discovery" name="discovery" required>
+                            <option value="" disabled selected>Select option...</option>
+                            <option value="Business Referral">Business Referral</option>
+                            <option value="Instagram">Instagram</option>
+                            <option value="Media Publication">Media Publication</option>
+                            <option value="Personal Invitation">Personal Invitation</option>
+                            <option value="TikTok">TikTok</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 9. SOCIAL MEDIA INFORMATION -->
+                <div class="form-group">
+                    <label class="section-label">9. SOCIAL MEDIA INFORMATION</label>
+                    <p class="helper-text">Do you have any of the following social media accounts?</p>
+                    <div class="checkbox-group mt-2">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="social" value="Facebook">
+                            <span class="checkmark"></span>
+                            Facebook
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="social" value="Instagram">
+                            <span class="checkmark"></span>
+                            Instagram
+                        </label>
+                        <label class="custom-checkbox">
+                            <input type="checkbox" name="social" value="TikTok">
+                            <span class="checkmark"></span>
+                            TikTok
+                        </label>
+                    </div>
+                </div>
+
+                <!-- 10. INSTAGRAM USERNAME -->
+                <div class="form-group">
+                    <label class="section-label">10. INSTAGRAM USERNAME</label>
+                    <div class="input-group mt-1">
+                        <input type="text" id="ig_username" name="ig_username" placeholder=" ">
+                        <label for="ig_username">Please provide your Instagram username (optional)</label>
+                    </div>
+                    <p class="helper-text italic mt-1">This helps us connect with guests, share event highlights, and collaborate with media and content creators.</p>
+                </div>
+
+                <div id="error-message" class="error-message hidden"></div>
+                <button type="submit" class="submit-btn mt-3">
+                    <span>Complete Registration & Receive QR Code</span>
                     <svg class="arrow-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                 </button>
             </form>
         </div>
 
-        <div class="glass-card success-card hidden" id="success-card">
-            <div class="success-icon">
-                <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        <div class="glass-card success-dashboard hidden" id="success-card">
+            <div class="dashboard-header">
+                <h2>Registration Complete!</h2>
+                <p>Welcome to the Grand Opening of Terasultan. Here is your exclusive access and information.</p>
             </div>
-            <h2>Terima Kasih!</h2>
-            <p>RSVP Anda telah berhasil disimpan. Terima kasih dan selamat menikmati Grand Opening Terasultan.</p>
+
+            <div class="dashboard-content">
+                <!-- QR Code Section -->
+                <div class="dashboard-section qr-section">
+                    <h3>Your Access QR Code</h3>
+                    <div class="qr-container">
+                        <img src="Teras_Sultan_QR_Logo.png" alt="Your QR Code" class="qr-code">
+                    </div>
+                    <p class="helper-text">Please present this QR code at the entrance.</p>
+                </div>
+
+                <!-- Video Section -->
+                <div class="dashboard-section video-section">
+                    <h3>Experience Terasultan</h3>
+                    <div class="video-container">
+                        <!-- Placeholder for YouTube/MP4 -->
+                        <div class="video-placeholder">
+                            <div class="play-btn">▶</div>
+                            <span>1-Minute Welcome Video</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Promos & Menus -->
+                <div class="dashboard-section promos-section">
+                    <h3>Exclusive Promos & Menu</h3>
+                    <div class="promo-grid">
+                        <div class="promo-card">
+                            <div class="promo-img-placeholder">Menu Preview</div>
+                            <h4>Grand Opening Menu</h4>
+                        </div>
+                        <div class="promo-card">
+                            <div class="promo-img-placeholder">Special Offer</div>
+                            <h4>20% Off Vouchers</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
