@@ -109,7 +109,7 @@ body {
 }
 
 .logo-image {
-    max-width: 120px;
+    max-width: 160px;
     height: auto;
     margin-bottom: 15px;
     filter: drop-shadow(0 4px 10px rgba(212, 175, 55, 0.2)); /* Subtle gold glow/shadow */
