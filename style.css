@@ -320,34 +320,122 @@ body {
     transform: scale(1.1);
 }
 
-.promo-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 15px;
-}
-
-.promo-card {
-    background: rgba(0, 0, 0, 0.2);
+/* Image Slider */
+.slider-container {
+    position: relative;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.4);
     border: 1px solid rgba(197, 160, 89, 0.1);
     border-radius: 12px;
     overflow: hidden;
+    margin-top: 15px;
+    padding-bottom: 10px;
 }
 
-.promo-img-placeholder {
-    height: 100px;
-    background: var(--emerald);
+.slider {
+    position: relative;
+    width: 100%;
+    height: 300px;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.slider-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.slider-img:hover {
+    transform: scale(1.02);
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    color: var(--gold-light);
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: var(--gold);
+    border: 1px solid rgba(197, 160, 89, 0.3);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
-    font-size: 0.9rem;
-    font-weight: 500;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+    font-size: 16px;
 }
 
-.promo-card h4 {
-    padding: 10px;
-    font-size: 0.9rem;
+.slider-nav:hover {
+    background: rgba(197, 160, 89, 0.2);
     color: var(--gold-light);
+}
+
+.slider-nav.prev {
+    left: 10px;
+}
+
+.slider-nav.next {
+    right: 10px;
+}
+
+.slider-dots {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 2;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--gold);
+    transform: scale(1.2);
 }
 
 /* Form Additions */
@@ -572,6 +660,64 @@ input:-webkit-autofill:active {
 
 .shake {
     animation: shake 0.4s ease-in-out;
+}
+
+/* Lightbox Modal */
+.lightbox {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(10px);
+    transition: opacity 0.3s ease;
+}
+
+.lightbox.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 80%;
+    border-radius: 12px;
+    border: 2px solid var(--gold);
+    box-shadow: 0 0 30px rgba(197, 160, 89, 0.4);
+    transform: scale(0.9);
+    transition: transform 0.3s ease;
+}
+
+.lightbox:not(.hidden) .lightbox-content {
+    transform: scale(1);
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: var(--gold-light);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.close-lightbox:hover {
+    color: #fff;
+}
+
+#lightbox-caption {
+    margin-top: 15px;
+    color: var(--gold-light);
+    font-size: 1.1rem;
+    font-family: 'Cinzel', serif;
 }
 
 @media (max-width: 480px) {

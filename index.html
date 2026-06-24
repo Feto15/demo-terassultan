@@ -696,7 +696,7 @@
                 <div class="dashboard-section qr-section">
                     <h3>Your Access QR Code</h3>
                     <div class="qr-container">
-                        <img src="Teras_Sultan_QR_Logo.png" alt="Your QR Code" class="qr-code">
+                        <img src="Teras_Sultan_QR_Logo.png" alt="Your Access QR Code" class="qr-code" onclick="openLightbox(this)" style="cursor: pointer;">
                     </div>
                     <p class="helper-text">Please present this QR code at the entrance.</p>
                 </div>
@@ -716,20 +716,40 @@
                 <!-- Promos & Menus -->
                 <div class="dashboard-section promos-section">
                     <h3>Exclusive Promos & Menu</h3>
-                    <div class="promo-grid">
-                        <div class="promo-card">
-                            <div class="promo-img-placeholder">Menu Preview</div>
-                            <h4>Grand Opening Menu</h4>
+                    <div class="slider-container">
+                        <div class="slider" id="promo-slider">
+                            <div class="slide active">
+                                <img src="promo1.jpeg" alt="Grand Opening Menu" class="slider-img" onclick="openLightbox(this)">
+                                <div class="slide-caption">Grand Opening Menu</div>
+                            </div>
+                            <div class="slide">
+                                <img src="promo2.jpeg" alt="Special VIP Offer" class="slider-img" onclick="openLightbox(this)">
+                                <div class="slide-caption">Special VIP Offer</div>
+                            </div>
+                            <div class="slide">
+                                <img src="promo3.jpeg" alt="Terasultan Ambience" class="slider-img" onclick="openLightbox(this)">
+                                <div class="slide-caption">Terasultan Ambience</div>
+                            </div>
+                            <div class="slide">
+                                <img src="promo4.jpeg" alt="Exclusive Signature Dish" class="slider-img" onclick="openLightbox(this)">
+                                <div class="slide-caption">Signature Cuisine</div>
+                            </div>
                         </div>
-                        <div class="promo-card">
-                            <div class="promo-img-placeholder">Special Offer</div>
-                            <h4>20% Off Vouchers</h4>
-                        </div>
+                        <button class="slider-nav prev" onclick="moveSlide(-1)">&#10094;</button>
+                        <button class="slider-nav next" onclick="moveSlide(1)">&#10095;</button>
+                        <div class="slider-dots" id="slider-dots"></div>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox hidden" onclick="this.classList.add('hidden')">
+        <span class="close-lightbox">&times;</span>
+        <img class="lightbox-content" id="lightbox-img">
+        <div id="lightbox-caption"></div>
+    </div>
 
     <script src="script.js"></script>
 </body>
