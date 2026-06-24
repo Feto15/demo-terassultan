@@ -135,6 +135,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     errorMessage.classList.remove('hidden');
                 }
             });
+    });
 });
 
 function openLightbox(img) {
