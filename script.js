@@ -96,34 +96,45 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.style.opacity = '0.8';
         submitBtn.disabled = true;
 
-        // Simulate API call / form submission delay
-        setTimeout(() => {
-            // Hide registration card
-            registrationCard.style.opacity = '0';
-            registrationCard.style.transform = 'translateY(-20px) scale(0.95)';
-            
-            setTimeout(() => {
-                registrationCard.classList.add('hidden');
-                registrationCard.style.position = 'absolute';
+        // Real API call to Google Apps Script
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbwft9JfUiVOakkexrzcGCecC-8d8FrwY7a-C4GZh2K8R-SVNJsdanrA1RShdTuEcaM8LQ/exec';
+        
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+            .then(response => {
+                // Hide registration card
+                registrationCard.style.opacity = '0';
+                registrationCard.style.transform = 'translateY(-20px) scale(0.95)';
                 
-                // Scroll back to top so user sees the new dashboard
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                
-                // Show success card
-                successCard.classList.remove('hidden');
-                successCard.style.position = 'relative';
-                
-                // Trigger reflow
-                void successCard.offsetWidth;
-                
-                successCard.style.opacity = '1';
-                successCard.style.transform = 'translateY(0) scale(1)';
-                preparePromoVideos();
-                
-            }, 500); // Wait for fade out animation
-            
-        }, 1500); // Mock network request
-    });
+                setTimeout(() => {
+                    registrationCard.classList.add('hidden');
+                    registrationCard.style.position = 'absolute';
+                    
+                    // Scroll back to top so user sees the new dashboard
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    
+                    // Show success card
+                    successCard.classList.remove('hidden');
+                    successCard.style.position = 'relative';
+                    
+                    // Trigger reflow
+                    void successCard.offsetWidth;
+                    
+                    successCard.style.opacity = '1';
+                    successCard.style.transform = 'translateY(0) scale(1)';
+                    preparePromoVideos();
+                    
+                }, 500); // Wait for fade out animation
+            })
+            .catch(error => {
+                console.error('Error!', error.message);
+                submitBtn.innerHTML = '<span>Daftar Sekarang</span><svg class="arrow-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>';
+                submitBtn.style.opacity = '1';
+                submitBtn.disabled = false;
+                if (errorMessage) {
+                    errorMessage.textContent = 'Terjadi kesalahan server. Silakan coba lagi.';
+                    errorMessage.classList.remove('hidden');
+                }
+            });
 });
 
 function openLightbox(img) {
