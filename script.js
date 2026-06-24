@@ -16,8 +16,15 @@ function preparePromoVideos() {
         video.playsInline = true;
 
         const source = video.querySelector('source');
-        if (source && !source.type) {
-            source.type = 'video/mp4';
+        if (source) {
+            if (!source.type) {
+                source.type = 'video/mp4';
+            }
+
+            const deferredSrc = source.dataset.src;
+            if (deferredSrc && source.src !== deferredSrc) {
+                source.src = deferredSrc;
+            }
         }
 
         video.addEventListener('play', () => {
@@ -29,16 +36,13 @@ function preparePromoVideos() {
         });
     });
 
+    // Force the browser to re-evaluate sources after the dashboard is visible.
+    videos.forEach((video) => {
+        video.load();
+    });
+
     if (isIOSSafari()) {
         document.body.classList.add('ios-safari');
-
-        // Reload the sources after the success card becomes visible so Safari
-        // recalculates the native controls in the final layout.
-        window.requestAnimationFrame(() => {
-            videos.forEach((video) => {
-                video.load();
-            });
-        });
     }
 }
 
