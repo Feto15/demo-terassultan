@@ -1,3 +1,47 @@
+function isIOSSafari() {
+    const ua = navigator.userAgent;
+    const isIOS = /iP(hone|ad|od)/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    const isWebKit = /WebKit/i.test(ua);
+    const isOtherIOSBrowser = /CriOS|FxiOS|EdgiOS|OPiOS/i.test(ua);
+
+    return isIOS && isWebKit && !isOtherIOSBrowser;
+}
+
+function preparePromoVideos() {
+    const videos = document.querySelectorAll('.video-section video');
+
+    videos.forEach((video) => {
+        video.setAttribute('playsinline', '');
+        video.setAttribute('webkit-playsinline', '');
+        video.playsInline = true;
+
+        const source = video.querySelector('source');
+        if (source && !source.type) {
+            source.type = 'video/mp4';
+        }
+
+        video.addEventListener('play', () => {
+            videos.forEach((otherVideo) => {
+                if (otherVideo !== video) {
+                    otherVideo.pause();
+                }
+            });
+        });
+    });
+
+    if (isIOSSafari()) {
+        document.body.classList.add('ios-safari');
+
+        // Reload the sources after the success card becomes visible so Safari
+        // recalculates the native controls in the final layout.
+        window.requestAnimationFrame(() => {
+            videos.forEach((video) => {
+                video.load();
+            });
+        });
+    }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('registration-form');
     const registrationCard = document.getElementById('registration-card');
@@ -70,6 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 successCard.style.opacity = '1';
                 successCard.style.transform = 'translateY(0) scale(1)';
+                preparePromoVideos();
                 
             }, 500); // Wait for fade out animation
             

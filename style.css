@@ -272,6 +272,18 @@ body {
     margin-bottom: 15px;
 }
 
+body.ios-safari .success-dashboard {
+    /* iOS Safari is prone to glitches with native video inside blurred layers. */
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(22, 22, 22, 0.92);
+}
+
+body.ios-safari .video-section video {
+    display: block;
+    transform: translateZ(0);
+}
+
 .qr-container {
     background: white;
     padding: 10px;
